@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Airtable from 'airtable';
+import { StringLiteralLike } from 'typescript';
+const base = new Airtable({ apiKey: 'keynmrOvRll58ERY7'}).base('appRTSRlXjQ67gLwM');
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface AppState {
+  text: string;
+}
+
+class App extends Component<{}, AppState> {
+
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      text: "HI"
+    };
+  }
+
+  componentDidMount() {
+    base('Events').select({
+      maxRecords: 3,
+      view: "Grid view"
+    }).eachPage(function page(records, fetchNextPage) {
+      // this function is called for each page of records
+      records.forEach(function(record) {
+        console.log('Retrieved', record.get('Event Name'));
+      });
+
+      fetchNextPage(); // fetch the next one!
+    }, function done(err) {
+      if (err) { 
+        console.log(err);
+        return;
+      }
+    });
+  }
+
+  render() {
+    let events: any[] = [];
+    return (
+      <div>
+        {events}
+      </div>
+    )
+  }
 }
 
 export default App;
