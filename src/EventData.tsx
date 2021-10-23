@@ -1,10 +1,10 @@
 interface EventData {
-    name: string;
-    type: string;
-    desc: string;
-    image: string;
-    date: string;
-    diversity: string;
+    name: any;
+    type: any;
+    desc: any;
+    image: any;
+    date: any;
+    diversity: any;
 }
 
 export default EventData;
