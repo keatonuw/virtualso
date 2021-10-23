@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Airtable from 'airtable';
-import { StringLiteralLike } from 'typescript';
 import EventData from './EventData';
+import Event from './Event';
+import { isThisTypeNode } from 'typescript';
 const base = new Airtable({ apiKey: 'keynmrOvRll58ERY7'}).base('appRTSRlXjQ67gLwM');
 
 interface AppState {
@@ -18,24 +19,17 @@ class App extends Component<{}, AppState> {
   }
 
   componentDidMount() {
-    let eventList: EventData[] = [];
+    this.getEvents();
+  }
+
+  getEvents = async () => {
+    let events: EventData[] = [];
     base('Events').select({
       maxRecords: 3,
       view: "Grid view"
-    }).eachPage(function page(records, fetchNextPage) {
+    }).eachPage((records, fetchNextPage) => {
       // this function is called for each page of records
-      records.forEach(function(record) {
-        console.log('Retrieved', record.get('Event Name'));
-        eventList.push({
-          name: record.get('Event Name'),
-          type: record.get('Event Name'),
-          desc: record.get('Event Name'),
-          image: record.get('Event Name'),
-          date: record.get('Event Name'),
-          diversity: record.get('Event Name'),
-        });
-      });
-
+      this.setState({events: this.recordsToEventData(records)});
       fetchNextPage(); // fetch the next one!
     }, function done(err) {
       if (err) { 
@@ -43,15 +37,39 @@ class App extends Component<{}, AppState> {
         return;
       }
     });
-    this.setState({
-      events: eventList
+    console.log(events);
+    this.setState({events: events});
+  }
+
+  recordsToEventData(records: any): EventData[] {
+    let events: EventData[] = [];
+    records.forEach(function(record: any) {
+      console.log('Retrieved', record.get('Event Name'));
+      events.push({
+        name: record.get('Event Name'),
+        type: record.get('Event Type'),
+        desc: record.get('Description'),
+        image: record.get('Image'),
+        date: record.get('Date'),
+        diversity: record.get('Diversity'),
+      });
     });
+    return events;
   }
 
   render() {
+    let events: JSX.Element[] = [];
+    console.log('made list');
+    console.log(this.state.events.length)
+    for (let i = 0; i < this.state.events.length; i++) {
+      events.push(
+        <Event data={this.state.events[i]} key={i}/>
+      );
+    }
     return (
       <div>
-        {this.state.events}
+        <h1>VIRTUALSO</h1>
+        {events}
       </div>
     )
   }
