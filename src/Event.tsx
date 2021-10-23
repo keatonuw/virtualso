@@ -5,6 +5,7 @@ interface EventProps {
     data: EventData;
 }
 
+// class used to render an event tile
 class Event extends Component<EventProps, {}> {
     render() {
         return (
