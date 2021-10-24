@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Open+Sans+Condensed:wght@300&family=Prata&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Open+Sans+Condensed:wght@300;700&family=Prata&family=Sevillana&display=swap');
 * {
     margin: 0;
     padding:0;
@@ -14,7 +13,8 @@
     background-size: cover;
     position: relative;
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 18px;
 }
 
 

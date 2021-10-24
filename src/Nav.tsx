@@ -8,7 +8,7 @@ class Nav extends Component<{}, {}> {
                     Virtualso
                 </h1>
                 <p className="slogan">
-                    Explore music and become a professional
+                    Enjoy music from anywhere in the world
                 </p>
                 <div className="topnav" >
                 <a className="active" href="#idlogo">Home </a>
