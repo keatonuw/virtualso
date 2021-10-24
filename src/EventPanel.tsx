@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import EventData from './EventData';
 import Airtable from 'airtable';
 import Event from './Event';
+import { stringify } from 'querystring';
 
 const base = new Airtable({ apiKey: 'keynmrOvRll58ERY7'}).base('appRTSRlXjQ67gLwM'); // im so sorry
 
 interface SearchFilters {
-    eventType: string
+    eventType: string,
+    eventSpecial: string,
+    eventSearch: string
 }
 
 interface EventPanelState {
@@ -19,7 +22,7 @@ class EventPanel extends Component<{}, EventPanelState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            filter: { eventType:""},
+            filter: { eventType:"", eventSpecial:"", eventSearch:"" },
             events: []
         };
     }
@@ -32,10 +35,14 @@ class EventPanel extends Component<{}, EventPanelState> {
     // function to get events and set state
     getEvents = async () => {
         let events: EventData[] = [];
+        
+        let filterString: string = "";
+        
+
         base('Events').select({
         maxRecords: 6,
         view: "Grid view",
-        filterByFormula: "({Event Name} = " + this.state.filter?.eventType + ")"
+        filterByFormula: "{Event Type} = \'" + this.state.filter.eventType + "\'"
         }).eachPage((records, fetchNextPage) => {
         // this function is called for each page of records
         this.setState({events: this.recordsToEventData(records)});
