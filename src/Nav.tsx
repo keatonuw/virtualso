@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class Nav extends Component<{}, {}> {
     render() {
         return (
-            <nav className= "Title">
-                <h1>
+            <nav>
+                <h1 className="logo">
                     Virtualso
                 </h1>
                 <p>

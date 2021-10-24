@@ -2,11 +2,18 @@ import React, { Component } from 'react';
 import EventData from './EventData';
 import Airtable from 'airtable';
 import Event from './Event';
+import { stringify } from 'querystring';
 
 const base = new Airtable({ apiKey: 'keynmrOvRll58ERY7'}).base('appRTSRlXjQ67gLwM'); // im so sorry
 
+interface SearchFilters {
+    eventType: string,
+    eventSpecial: string,
+    eventSearch: string
+}
+
 interface EventPanelState {
-    filter: any,
+    filter: SearchFilters,
     events: EventData[]
 }
 
@@ -15,7 +22,7 @@ class EventPanel extends Component<{}, EventPanelState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            filter: "str",
+            filter: { eventType:"", eventSpecial:"", eventSearch:"" },
             events: []
         };
     }
@@ -28,9 +35,14 @@ class EventPanel extends Component<{}, EventPanelState> {
     // function to get events and set state
     getEvents = async () => {
         let events: EventData[] = [];
+        
+        let filterString: string = "";
+        
+
         base('Events').select({
         maxRecords: 6,
-        view: "Grid view"
+        view: "Grid view",
+        filterByFormula: "{Event Type} = \'" + this.state.filter.eventType + "\'"
         }).eachPage((records, fetchNextPage) => {
         // this function is called for each page of records
         this.setState({events: this.recordsToEventData(records)});
@@ -62,6 +74,15 @@ class EventPanel extends Component<{}, EventPanelState> {
         return events;
     }
 
+    updateEvent = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        let filt = this.state.filter;
+        if (filt) filt.eventType = event.target.value;
+        this.setState({
+            filter: filt
+        });
+        this.getEvents();
+    };
+
     // render HTML
     render() {
         // create all of the Event entries
@@ -69,14 +90,40 @@ class EventPanel extends Component<{}, EventPanelState> {
         console.log('made list');
         console.log(this.state.events.length)
         for (let i = 0; i < this.state.events.length; i++) {
-        events.push(
-            <Event data={this.state.events[i]} key={i}/>
-        );
+            events.push(
+                <Event data={this.state.events[i]} key={i}/>
+            );
         }
 
         return (
         <div>
             <h1>Events</h1>
+            <div>
+                <label htmlFor="locationSelect">Location</label>
+                <select name="location" id="locationSelect">
+                    <option value="Seattle">Seattle</option>
+                </select>
+
+                <label htmlFor="eventSelect">Event</label>
+                <select name="event" id="eventSelect" onChange={this.updateEvent}>
+                    <option value="">All</option>
+                    <option value="History">History</option>
+                    <option value="Venues">Venues</option>
+                    <option value="Lessons">Lessons</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Concerts">Concerts</option>
+                </select>
+
+                <label htmlFor="specialSelect">Event</label>
+                <select name="special" id="specialSelect">
+                    <option value="">All</option>
+                    <option value="Women in Music">Women in Music</option>
+                    <option value="Pride">Pride</option>
+                    <option value="BIPOC in Music">BIPOC in Music</option>
+                </select>
+                <input type="search"/>
+                <button>Search</button>
+            </div>
             <div>
                 {events}
             </div>
