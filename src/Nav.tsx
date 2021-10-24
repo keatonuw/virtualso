@@ -10,6 +10,7 @@ class Nav extends Component<{}, {}> {
                 <p className="slogan">
                     Explore music and become a professional
                 </p>
+                
             </nav>
         )
     }

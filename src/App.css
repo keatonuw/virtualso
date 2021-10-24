@@ -117,10 +117,13 @@ nav > p {
     background-color: #C99FF0;
 }
 .carousel-inner{
-    height:360px;
+    height:380px;
     display: block;
 
     margin-left: auto;
     margin-right: auto;
     width: 40%;
+}
+.carousel-caption·d-none·d-md-block{
+    font:bold
 }
