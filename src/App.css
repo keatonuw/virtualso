@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Open+Sans+Condensed:wght@300&family=Prata&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Open+Sans+Condensed:wght@300&family=Prata&family=Sevillana&display=swap');
 * {
   user-select: none;
-  font-family: 'Open Sans', sans-serif;
 }
 
 .content {
@@ -10,8 +8,12 @@
 }
 
 nav {
-    display: inline-flex;
+    display: flex;
+    width: 100%;
     align-items: bottom;
+    
+    align-items: center;
+    justify-content: space-around;
 }
 
 .carousel {
@@ -20,7 +22,7 @@ nav {
 }
 
 nav > p {
-    padding: 45px 0 0 0;
+    padding-top: 30px;
 }
 
 .logo{
@@ -28,7 +30,7 @@ nav > p {
     width: 316px;
     height: 66px;
     
-    font-family: 'Prata', serif;
+    font-family: 'Sevillana', cursive;
     font-style: normal;
     font-weight: normal;
     font-size: 64px;
@@ -126,7 +128,7 @@ nav > p {
 }
 .topnav {
     float:right;
-    margin-top: 45px;
+    margin-top: 30px;
     overflow: hidden;
   }
 .topnav a {

@@ -17,6 +17,10 @@
     font-size: 20px;
 }
 
+.event > * {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
 .Title {
     font-family: 'Prata', serif;
     padding: 5px 10px;
@@ -57,7 +61,7 @@
     padding: 5px;
     border: 1px solid black;
     width: 15%;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Prata', serif;
     
 }
 
@@ -66,7 +70,7 @@
 }
 
 .filterBar > * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Prata', serif;
     font-size: 15px;
     padding: 0;
     margin: 0;
