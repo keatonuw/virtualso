@@ -154,7 +154,7 @@ class EventPanel extends Component<{}, EventPanelState> {
                 </div>
 
                 <div className="filterBar">
-                    <label htmlFor="specialSelect">Special:</label>
+                    <label htmlFor="specialSelect">Community:</label>
                     <select name="special" id="specialSelect" onChange={this.updateSpecial}>
                         <option value="">All</option>
                         <option value="Women in Music">Women in Music</option>
