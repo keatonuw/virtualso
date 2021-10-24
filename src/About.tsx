@@ -4,8 +4,8 @@ class About extends Component<{}, {}> {
     render() {
         return (
             <div>
-                <h1>About Us</h1>
-                <p>
+                <h1 className="Titles">About Us</h1>
+                <p className="aboutus">
                     Virtualso is a platform to help individuals find and partake in music at any location 
                     or region they choose.  In addition to helping people find where they can listen to 
                     music, we also help people locate facilities that encourages the learning of instruments 
@@ -15,7 +15,7 @@ class About extends Component<{}, {}> {
                     to have music today.
                 </p>
 
-                <p>
+                <p className="aboutus">
                     We, the creators of Virtualso, are a group of students competing in the DubHacks 2021 
                     Hackathon. The inspiration for this platform came from the increase in usage of technology 
                     and how people consume entertainment and media throughout the pandemic. We hope by building 

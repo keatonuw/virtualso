@@ -132,7 +132,7 @@ class EventPanel extends Component<{}, EventPanelState> {
 
         return (
         <div>
-            <h1>Events</h1>
+            <h1 className="Titles">Events</h1>
             <div>
                 <label htmlFor="locationSelect">Location</label>
                 <select name="location" id="locationSelect">

@@ -1,15 +1,60 @@
-.logo {
-  position: absolute;
-  width: 316px;
-  height: 66px;
-  left: 33px;
-  top: -2px;
-
-  font-family: 'Times New Roman', Times, serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 64px;
-  line-height: 87px;
-
-  color: #000000;
+.logo{
+ 
+    width: 316px;
+    height: 66px;
+    left: 33px;
+    top: -2px;
+    
+    font-family: Sevillana;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 87px;
+    
+    color: #000000;
+}
+.slogan{
+  
+    width: 487px;
+    height: 38px;
+    left: 285px;
+    top: 43px;
+    
+    font-family: Prata;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    
+    color: #000000;
+}
+.Titles{
+    
+    width: 316px;
+    height: 66px;
+    left: 121px;
+    top: 348px;
+    
+    font-family: Prata;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 65px;
+    
+    color: #000000;
+}
+.aboutus{
+    
+    width: 1184px;
+    height: 358px;
+    left: 127px;
+    top: 1133px;
+    
+    font-family: Prata;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+    
+    color: #000000;
 }
