@@ -76,8 +76,10 @@ class EventPanel extends Component<{}, EventPanelState> {
 
         return (
         <div>
-            <h1>VIRTUALSO</h1>
-            {events}
+            <h1>Events</h1>
+            <div>
+                {events}
+            </div>
         </div>
         )
     }
