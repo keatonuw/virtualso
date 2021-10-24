@@ -18,8 +18,10 @@ class App extends Component<{}, {}> {
       <div>
         <Nav />
         <Featured />
+        <div className="content">
         <EventPanel />
         <About />
+        </div>
         <Footer />
       </div>
     )
