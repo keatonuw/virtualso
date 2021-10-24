@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Featured extends Component<{}, {}> {
     render() {
         return (
-            <div>
+            <div >
                 <h1>Featured Artist</h1>
             </div>
         )

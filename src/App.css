@@ -1,0 +1,15 @@
+.Title{
+    position: absolute;
+    width: 316px;
+    height: 66px;
+    left: 33px;
+    top: -2px;
+    
+    font-family: Sevillana;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 87px;
+    
+    color: #000000;
+}
