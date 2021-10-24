@@ -11,7 +11,6 @@ class Nav extends Component<{}, {}> {
                     Enjoy music from anywhere in the world
                 </p>
                 <div className="topnav" >
-                <a className="active" href="#idlogo">Home </a>
                 <a href="#idevent">Events</a>
                 <a href="#idaboutus">About Us</a>
                 </div>
