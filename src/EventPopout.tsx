@@ -8,8 +8,11 @@ class EventPopout extends Component<EventProps, {}> {
                 <h1 className="Title">{this.props.data.name}</h1>
                 <p>{this.props.data.date}</p>
                 <p>{this.props.data.type} {this.props.data.diversity}</p>
-                <img src={this.props.data.image}/>
-                <p className="desc">{this.props.data.desc}</p>               
+                <div className="popout-cont">
+                    <img src={this.props.data.image}/>
+                    <p className="desc">{this.props.data.desc}</p>  
+                </div>
+                             
             </div>
         )
     }
