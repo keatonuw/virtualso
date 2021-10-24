@@ -7,7 +7,7 @@ class Nav extends Component<{}, {}> {
                 <h1 className="logo">
                     Virtualso
                 </h1>
-                <p>
+                <p className="slogan">
                     Explore music and become a professional
                 </p>
             </nav>
