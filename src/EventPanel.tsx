@@ -132,31 +132,41 @@ class EventPanel extends Component<{}, EventPanelState> {
         return (
         <div>
             <h1 className="Titles">Events</h1>
-            <div>
-                <label htmlFor="locationSelect">Location</label>
-                <select name="location" id="locationSelect">
-                    <option value="Seattle">Seattle</option>
-                </select>
+            <div className="filterBars">
 
-                <label htmlFor="eventSelect">Event</label>
-                <select name="event" id="eventSelect" onChange={this.updateEvent}>
-                    <option value="">All</option>
-                    <option value="History">History</option>
-                    <option value="Venues">Venues</option>
-                    <option value="Lessons">Lessons</option>
-                    <option value="Shopping">Shopping</option>
-                    <option value="Concerts">Concerts</option>
-                </select>
+                <div className="filterBar">
+                    <label htmlFor="locationSelect">Location:</label>
+                    <select name="location" id="locationSelect">
+                        <option value="Seattle">Seattle</option>
+                    </select>
+                </div>
 
-                <label htmlFor="specialSelect">Event</label>
-                <select name="special" id="specialSelect" onChange={this.updateSpecial}>
-                    <option value="">All</option>
-                    <option value="Women in Music">Women in Music</option>
-                    <option value="Pride">Pride</option>
-                    <option value="BIPOC in Music">BIPOC in Music</option>
-                </select>
+                <div className="filterBar">
+                    <label htmlFor="eventSelect">Type:</label>
+                    <select name="event" id="eventSelect" onChange={this.updateEvent}>
+                        <option value="">All</option>
+                        <option value="History">History</option>
+                        <option value="Venues">Venues</option>
+                        <option value="Lessons">Lessons</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Concerts">Concerts</option>
+                    </select>
+                </div>
 
+                <div className="filterBar">
+                    <label htmlFor="specialSelect">Special:</label>
+                    <select name="special" id="specialSelect" onChange={this.updateSpecial}>
+                        <option value="">All</option>
+                        <option value="Women in Music">Women in Music</option>
+                        <option value="Pride">Pride</option>
+                        <option value="BIPOC in Music">BIPOC in Music</option>
+                    </select>
+                </div>
+
+                <div className="filterBar search">
+                <label>Search:</label>
                 <input type="text" name="search" onChange={this.updateSearch}/>
+                </div>
             </div>
             <div className="eventGrid">
                 {events}

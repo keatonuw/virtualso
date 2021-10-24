@@ -10,7 +10,7 @@ class Event extends Component<EventProps, {}> {
             <div className="event" style={{backgroundImage: `url("${this.props.data.image}")`}}>
                 <div className="overText">
                     <p>{this.props.data.name}</p>
-                    <p>{this.props.data.desc}</p>
+                    <p>{this.props.data.date}</p>
                 </div>
             </div>
         )
