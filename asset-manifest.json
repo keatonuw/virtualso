@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/virtualso/static/css/main.cad62267.chunk.css",
-    "main.js": "/virtualso/static/js/main.e4f85c68.chunk.js",
-    "main.js.map": "/virtualso/static/js/main.e4f85c68.chunk.js.map",
+    "main.css": "/virtualso/static/css/main.a4656e50.chunk.css",
+    "main.js": "/virtualso/static/js/main.ee057c55.chunk.js",
+    "main.js.map": "/virtualso/static/js/main.ee057c55.chunk.js.map",
     "runtime-main.js": "/virtualso/static/js/runtime-main.20a88af3.js",
     "runtime-main.js.map": "/virtualso/static/js/runtime-main.20a88af3.js.map",
     "static/js/2.f09f6d1b.chunk.js": "/virtualso/static/js/2.f09f6d1b.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.e72bcc12.chunk.js": "/virtualso/static/js/3.e72bcc12.chunk.js",
     "static/js/3.e72bcc12.chunk.js.map": "/virtualso/static/js/3.e72bcc12.chunk.js.map",
     "index.html": "/virtualso/index.html",
-    "static/css/main.cad62267.chunk.css.map": "/virtualso/static/css/main.cad62267.chunk.css.map",
+    "static/css/main.a4656e50.chunk.css.map": "/virtualso/static/css/main.a4656e50.chunk.css.map",
     "static/js/2.f09f6d1b.chunk.js.LICENSE.txt": "/virtualso/static/js/2.f09f6d1b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.20a88af3.js",
     "static/js/2.f09f6d1b.chunk.js",
-    "static/css/main.cad62267.chunk.css",
-    "static/js/main.e4f85c68.chunk.js"
+    "static/css/main.a4656e50.chunk.css",
+    "static/js/main.ee057c55.chunk.js"
   ]
 }
