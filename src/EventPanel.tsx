@@ -146,7 +146,7 @@ class EventPanel extends Component<{}, EventPanelState> {
 
         return (
         <div>
-            <h1 className="Titles">Events</h1>
+            <h1 className="Titles" id="idevent">Events</h1>
             <div className="filterBars">
 
                 <div className="filterBar">

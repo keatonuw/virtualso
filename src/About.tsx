@@ -4,7 +4,7 @@ class About extends Component<{}, {}> {
     render() {
         return (
             <div>
-                <h1 className="Titles">About Us</h1>
+                <h1 className="Titles" id="idaboutus">About Us</h1>
                 <div className="aboutus">
                 <p>
                     Virtualso is a platform to help individuals find and partake in music at any location 

@@ -13,7 +13,7 @@ class Featured extends Component<{}, {}> {
                 <div className="carousel-item active">
                 <img src="https://i.ibb.co/5cFjFfh/Screen-Shot-2021-10-24-at-2-15-08-AM.png" className="d-block w-100" alt="..." />
                 <div className="carousel-caption d-none d-md-block">
-                <h5>Seattle Broadway</h5>
+                <h5 className="h5">Seattle Broadway</h5>
                 <p>Mean Girls November 16th - 21st </p>
                 </div>
                 </div>
