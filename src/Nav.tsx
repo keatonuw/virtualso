@@ -4,7 +4,7 @@ class Nav extends Component<{}, {}> {
     render() {
         return (
             <nav>
-                <h1>
+                <h1 className="logo">
                     Virtualso
                 </h1>
                 <p>

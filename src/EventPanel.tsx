@@ -5,6 +5,10 @@ import Event from './Event';
 
 const base = new Airtable({ apiKey: 'keynmrOvRll58ERY7'}).base('appRTSRlXjQ67gLwM'); // im so sorry
 
+interface SearchFilters {
+    eventType: string
+}
+
 interface EventPanelState {
     filter: any,
     events: EventData[]
@@ -77,6 +81,30 @@ class EventPanel extends Component<{}, EventPanelState> {
         return (
         <div>
             <h1>Events</h1>
+            <div>
+                <label htmlFor="locationSelect">Location</label>
+                <select name="location" id="locationSelect">
+                    <option value="Seattle">Seattle</option>
+                </select>
+
+                <label htmlFor="eventSelect">Event</label>
+                <select name="event" id="eventSelect">
+                    <option value="History">History</option>
+                    <option value="Venues">Venues</option>
+                    <option value="Lessons">Lessons</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Concerts">Concerts</option>
+                </select>
+
+                <label htmlFor="specialSelect">Event</label>
+                <select name="special" id="specialSelect">
+                    <option value="Women in Music">Women in Music</option>
+                    <option value="Pride">Pride</option>
+                    <option value="BIPOC in Music">BIPOC in Music</option>
+                </select>
+                <input type="search"/>
+                <button>Search</button>
+            </div>
             <div>
                 {events}
             </div>

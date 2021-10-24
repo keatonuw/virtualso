@@ -8,6 +8,7 @@ import Featured from './Featured';
 import EventPanel from './EventPanel';
 import About from './About';
 import Footer from './Footer';
+import './App.css';
 
 
 interface AppState {
