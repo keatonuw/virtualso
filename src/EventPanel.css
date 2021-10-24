@@ -59,7 +59,7 @@
 
 .filterBar > select, input {
     float: right;
-    width: 150px;
+    width: 50%;
 }
 
 img {
