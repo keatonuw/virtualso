@@ -150,14 +150,13 @@ class EventPanel extends Component<{}, EventPanelState> {
             <div className="filterBars">
 
                 <div className="filterBar">
-                    <label htmlFor="locationSelect">Location:</label>
                     <select name="location" id="locationSelect">
                         <option value="Seattle">Seattle</option>
                     </select>
+                    <label htmlFor="locationSelect">Location:</label>
                 </div>
 
                 <div className="filterBar">
-                    <label htmlFor="eventSelect">Type:</label>
                     <select name="event" id="eventSelect" onChange={this.updateEvent}>
                         <option value="">All</option>
                         <option value="History">History</option>
@@ -166,16 +165,18 @@ class EventPanel extends Component<{}, EventPanelState> {
                         <option value="Shopping">Shopping</option>
                         <option value="Concerts">Concerts</option>
                     </select>
+                    <label htmlFor="eventSelect">Type:</label>
                 </div>
 
                 <div className="filterBar">
-                    <label htmlFor="specialSelect">Community:</label>
+                    
                     <select name="special" id="specialSelect" onChange={this.updateSpecial}>
                         <option value="">All</option>
                         <option value="Women in Music">Women in Music</option>
                         <option value="Pride">Pride</option>
                         <option value="BIPOC in Music">BIPOC in Music</option>
                     </select>
+                    <label htmlFor="specialSelect">Community:</label>
                 </div>
 
                 <div className="filterBar search">
