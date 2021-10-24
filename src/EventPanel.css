@@ -57,7 +57,7 @@
     border: 0;
 }
 
-.filterBar > select, input {
+.filterBar > select {
     float: right;
     width: 50%;
 }
