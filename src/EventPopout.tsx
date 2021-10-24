@@ -4,12 +4,12 @@ import EventProps from './EventProps';
 class EventPopout extends Component<EventProps, {}> {
     render() {
         return (
-            <div>
-                <h1>{this.props.data.name}</h1>
-                <img src={this.props.data.image}/>
-                <p>{this.props.data.desc}</p>
+            <div className="event popout">
+                <h1 className="Title">{this.props.data.name}</h1>
                 <p>{this.props.data.date}</p>
-                <p>{this.props.data.type}</p>
+                <p>{this.props.data.type} {this.props.data.diversity}</p>
+                <img src={this.props.data.image}/>
+                <p className="desc">{this.props.data.desc}</p>               
             </div>
         )
     }

@@ -2,6 +2,7 @@ import React, { Component, ReactType } from 'react';
 import EventData from './EventData';
 import Airtable from 'airtable';
 import Event from './Event';
+import EventPopout from './EventPopout';
 import './EventPanel.css';
 
 const base = new Airtable({ apiKey: 'keynmrOvRll58ERY7'}).base('appRTSRlXjQ67gLwM'); // im so sorry
@@ -14,7 +15,8 @@ interface SearchFilters {
 
 interface EventPanelState {
     filter: SearchFilters,
-    events: EventData[]
+    events: EventData[],
+    focus: EventData | undefined
 }
 
 class EventPanel extends Component<{}, EventPanelState> {
@@ -23,7 +25,8 @@ class EventPanel extends Component<{}, EventPanelState> {
         super(props);
         this.state = {
             filter: { eventType:"", eventSpecial:"", eventSearch:"" },
-            events: []
+            events: [],
+            focus: undefined
         };
     }
 
@@ -116,17 +119,29 @@ class EventPanel extends Component<{}, EventPanelState> {
         this.getEvents();
     };
 
+    updateFocus = (data: EventData) => {
+        this.setState({
+            focus: data
+        });
+    };
+
 
     // render HTML
     render() {
         // create all of the Event entries
         let events: JSX.Element[] = [];
-        console.log('made list');
         console.log(this.state.events.length)
         for (let i = 0; i < this.state.events.length; i++) {
-            events.push(
-                <Event data={this.state.events[i]} key={i}/>
-            );
+            if (this.state.focus && this.state.events[i].name === this.state.focus.name) {
+                events.push(
+                    <EventPopout data={this.state.events[i]} key={i}/>
+                );
+            } else {
+                events.push(
+                    <Event data={this.state.events[i]} focus={this.updateFocus} key={i}/>
+                );
+            }
+            
         }
 
         return (
