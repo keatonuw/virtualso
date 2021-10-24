@@ -8,8 +8,10 @@ class Event extends Component<EventProps, {}> {
     render() {
         return (
             <div className="event" style={{backgroundImage: `url("${this.props.data.image}")`}}>
-                <h1>{this.props.data.name}</h1>
-                <p>{this.props.data.desc}</p>
+                <div className="overText">
+                    <p>{this.props.data.name}</p>
+                    <p>{this.props.data.desc}</p>
+                </div>
             </div>
         )
     }
