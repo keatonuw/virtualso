@@ -10,7 +10,7 @@ interface SearchFilters {
 }
 
 interface EventPanelState {
-    filter: any,
+    filter: SearchFilters,
     events: EventData[]
 }
 
@@ -19,7 +19,7 @@ class EventPanel extends Component<{}, EventPanelState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            filter: "str",
+            filter: { eventType:""},
             events: []
         };
     }
@@ -34,7 +34,8 @@ class EventPanel extends Component<{}, EventPanelState> {
         let events: EventData[] = [];
         base('Events').select({
         maxRecords: 6,
-        view: "Grid view"
+        view: "Grid view",
+        filterByFormula: "({Event Name} = " + this.state.filter?.eventType + ")"
         }).eachPage((records, fetchNextPage) => {
         // this function is called for each page of records
         this.setState({events: this.recordsToEventData(records)});
@@ -66,6 +67,15 @@ class EventPanel extends Component<{}, EventPanelState> {
         return events;
     }
 
+    updateEvent = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        let filt = this.state.filter;
+        if (filt) filt.eventType = event.target.value;
+        this.setState({
+            filter: filt
+        });
+        this.getEvents();
+    };
+
     // render HTML
     render() {
         // create all of the Event entries
@@ -73,9 +83,9 @@ class EventPanel extends Component<{}, EventPanelState> {
         console.log('made list');
         console.log(this.state.events.length)
         for (let i = 0; i < this.state.events.length; i++) {
-        events.push(
-            <Event data={this.state.events[i]} key={i}/>
-        );
+            events.push(
+                <Event data={this.state.events[i]} key={i}/>
+            );
         }
 
         return (
@@ -88,7 +98,8 @@ class EventPanel extends Component<{}, EventPanelState> {
                 </select>
 
                 <label htmlFor="eventSelect">Event</label>
-                <select name="event" id="eventSelect">
+                <select name="event" id="eventSelect" onChange={this.updateEvent}>
+                    <option value="">All</option>
                     <option value="History">History</option>
                     <option value="Venues">Venues</option>
                     <option value="Lessons">Lessons</option>
@@ -98,6 +109,7 @@ class EventPanel extends Component<{}, EventPanelState> {
 
                 <label htmlFor="specialSelect">Event</label>
                 <select name="special" id="specialSelect">
+                    <option value="">All</option>
                     <option value="Women in Music">Women in Music</option>
                     <option value="Pride">Pride</option>
                     <option value="BIPOC in Music">BIPOC in Music</option>
