@@ -58,7 +58,8 @@
 }
 
 .filterBar > select, input {
-    justify-content: right;
+    float: right;
+    width: 150px;
 }
 
 img {
