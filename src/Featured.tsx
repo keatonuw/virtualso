@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Featured extends Component<{}, {}> {
     render() {
         return (
-            <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleIndicators" className="carouselslide" data-bs-ride="carousel">
                 <div className="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -11,13 +11,13 @@ class Featured extends Component<{}, {}> {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                    <img src="https://assets.digitalocean.com/articles/alligator/css/object-fit/example-object-fit.jpg" className="d-block w-100" alt="..." />
+                    <img src="https://i.ibb.co/0MCJ9xh/Screen-Shot-2021-10-24-at-1-09-23-AM.png"  className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                    <img src="https://assets.digitalocean.com/articles/alligator/css/object-fit/example-object-fit.jpg" className="d-block w-100" alt="..." />
+                    <img src="https://i.ibb.co/RTvkYp1/Screen-Shot-2021-10-23-at-4-09-51-PM.png" className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                    <img src="https://assets.digitalocean.com/articles/alligator/css/object-fit/example-object-fit.jpg" className="d-block w-100" alt="..." />
+                    <img src="https://i.ibb.co/RTvkYp1/Screen-Shot-2021-10-23-at-4-09-51-PM.png" className="d-block w-100" alt="..." />
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

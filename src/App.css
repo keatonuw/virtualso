@@ -105,3 +105,11 @@
 .jumbotron{
     background-color: #C99FF0;
 }
+.carousel-inner{
+    height:360px;
+    display: block;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
