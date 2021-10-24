@@ -2,7 +2,7 @@ import React, { Component, ReactType } from 'react';
 import EventData from './EventData';
 import Airtable from 'airtable';
 import Event from './Event';
-import { stringify } from 'querystring';
+import './EventPanel.css';
 
 const base = new Airtable({ apiKey: 'keynmrOvRll58ERY7'}).base('appRTSRlXjQ67gLwM'); // im so sorry
 
@@ -159,7 +159,7 @@ class EventPanel extends Component<{}, EventPanelState> {
 
                 <input type="text" name="search" onChange={this.updateSearch}/>
             </div>
-            <div>
+            <div className="eventGrid">
                 {events}
             </div>
         </div>

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import Airtable from 'airtable';
 import EventData from './EventData';
-import Event from './Event';
-import { isThisTypeNode } from 'typescript';
 import Nav from './Nav';
 import Featured from './Featured';
 import EventPanel from './EventPanel';

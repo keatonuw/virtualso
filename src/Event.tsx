@@ -6,7 +6,7 @@ import EventProps from './EventProps';
 class Event extends Component<EventProps, {}> {
     render() {
         return (
-            <div>
+            <div className="event">
                 <h1>{this.props.data.name}</h1>
                 <img src={this.props.data.image}/>
                 <p>{this.props.data.desc}</p>
