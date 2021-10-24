@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactType } from 'react';
 import EventData from './EventData';
 import Airtable from 'airtable';
 import Event from './Event';
@@ -36,13 +36,26 @@ class EventPanel extends Component<{}, EventPanelState> {
     getEvents = async () => {
         let events: EventData[] = [];
         
-        let filterString: string = "";
-        
+        // crudely build filter formula :)))
+        let eventType: string = "TRUE()";
+        let eventSpecial: string = "TRUE()";
+        let eventSearch: string = "TRUE()"
+        if (this.state.filter.eventType != "") {
+            eventType = "{Event Type} = \'" + this.state.filter.eventType + "\'";
+        }
+        if (this.state.filter.eventSpecial != "") {
+            eventSpecial = "{Diversity} = \'" + this.state.filter.eventSpecial + "\'";
+        }
+        if (this.state.filter.eventSearch != "") {
+            eventSearch = "FIND(\'"+ this.state.filter.eventSearch +"\', {Event Name})";
+        }
+        let filterString: string = "AND("+ eventType + ", AND(" + eventSpecial + ", " + eventSearch + "))";
+        console.log(filterString);
 
         base('Events').select({
         maxRecords: 6,
         view: "Grid view",
-        filterByFormula: "{Event Type} = \'" + this.state.filter.eventType + "\'"
+        filterByFormula: filterString
         }).eachPage((records, fetchNextPage) => {
         // this function is called for each page of records
         this.setState({events: this.recordsToEventData(records)});
@@ -74,6 +87,7 @@ class EventPanel extends Component<{}, EventPanelState> {
         return events;
     }
 
+    // callback to update event type filter
     updateEvent = (event: React.ChangeEvent<HTMLSelectElement>) => {
         let filt = this.state.filter;
         if (filt) filt.eventType = event.target.value;
@@ -82,6 +96,27 @@ class EventPanel extends Component<{}, EventPanelState> {
         });
         this.getEvents();
     };
+
+    // callback to update the special event filter
+    updateSpecial = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        let filt = this.state.filter;
+        if (filt) filt.eventSpecial = event.target.value;
+        this.setState({
+            filter: filt
+        });
+        this.getEvents();
+    };
+
+    // callback to update the general search filter
+    updateSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        let filt = this.state.filter;
+        if (filt) filt.eventSearch = event.target.value;
+        this.setState({
+            filter: filt
+        });
+        this.getEvents();
+    };
+
 
     // render HTML
     render() {
@@ -115,14 +150,14 @@ class EventPanel extends Component<{}, EventPanelState> {
                 </select>
 
                 <label htmlFor="specialSelect">Event</label>
-                <select name="special" id="specialSelect">
+                <select name="special" id="specialSelect" onChange={this.updateSpecial}>
                     <option value="">All</option>
                     <option value="Women in Music">Women in Music</option>
                     <option value="Pride">Pride</option>
                     <option value="BIPOC in Music">BIPOC in Music</option>
                 </select>
-                <input type="search"/>
-                <button>Search</button>
+
+                <input type="text" name="search" onChange={this.updateSearch}/>
             </div>
             <div>
                 {events}
