@@ -62,3 +62,43 @@
     
     color: #000000;
 }
+.Contacts{
+
+
+    width: 368px;
+    height: 40px;
+    left: 608px;
+    top: 1563px;
+    
+    font-family: Prata;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+    display: flex;
+    align-items: center;
+    
+    color: #000000;
+    
+}
+.footer{
+    display: inline-flex;
+    background-color:#C99FF0;;
+    overflow: hidden;
+    width: 1440px;
+    height: 95px;
+    left: 0px;
+    top: 1534px;
+    
+}
+.socialpics{
+    margin: 22px;
+    margin-top: 20px;
+    width: 54px;
+    height: 50px;
+    left: 1246px;
+    top: 1558px;
+    
+    
+
+}
