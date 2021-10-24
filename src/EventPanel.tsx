@@ -53,7 +53,6 @@ class EventPanel extends Component<{}, EventPanelState> {
         console.log(filterString);
 
         base('Events').select({
-        maxRecords: 6,
         view: "Grid view",
         filterByFormula: filterString
         }).eachPage((records, fetchNextPage) => {

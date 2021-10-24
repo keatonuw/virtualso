@@ -1,3 +1,21 @@
 .event {
     font-family: 'Times New Roman', Times, serif;
+    width: 30%;
+    height: 200px;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 0 0 10px 0;
+    overflow: hidden;
+}
+
+.eventGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+img {
+    width: 100%;
 }
